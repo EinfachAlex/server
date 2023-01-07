@@ -460,7 +460,7 @@ class View {
 				// forward file handle via chunked fread because fseek seem to have failed
 
 				$end = $from + 1;
-				while (!feof($handle) && ftell($handle) < $end && ftell($handle) !== $from) {
+				while (!feof($handle) && ftell($handle) < $end && ftell($handle) !== intval($from)) {
 					$len = $from - ftell($handle);
 					if ($len > $chunkSize) {
 						$len = $chunkSize;
